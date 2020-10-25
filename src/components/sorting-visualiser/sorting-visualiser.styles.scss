@@ -1,0 +1,27 @@
+.sorting-visualiser {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.array-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.array-bar {
+  width: 6px;
+  display: inline-block;
+  margin: 0 1px;
+}
