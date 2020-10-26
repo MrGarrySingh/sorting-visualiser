@@ -4,7 +4,7 @@ import selectionSortHelper from '../../algorithms/selectionSort.js';
 import insertionSortHelper from '../../algorithms/insertionSort.js';
 import './sorting-visualiser.styles.scss';
 
-const ANIMATION_SPEED = 2;
+const ANIMATION_SPEED = 1;
 const NUMBER_OF_BARS = 225;
 const PRIMARY_COLOR = 'darksalmon';
 
@@ -16,8 +16,7 @@ class SortingVisualiser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      array: [],
-      isDisabled: false
+      array: []
     }
   }
 
@@ -48,7 +47,7 @@ class SortingVisualiser extends React.Component {
         setTimeout(() => {
           bar1.style.height = `${h2}px`;
           bar2.style.height = `${h1}px`;
-        }, i * ANIMATION_SPEED * 0.5)
+        }, i * ANIMATION_SPEED)
       }
 
       bar1.style.backgroundColor = PRIMARY_COLOR;
@@ -93,7 +92,7 @@ class SortingVisualiser extends React.Component {
         setTimeout(() => {
           bar1.style.height = `${h2}px`;
           bar2.style.height = `${h1}px`;
-        }, i * ANIMATION_SPEED * 0.5)
+        }, i * ANIMATION_SPEED)
       }
 
       bar1.style.backgroundColor = PRIMARY_COLOR;
@@ -102,7 +101,7 @@ class SortingVisualiser extends React.Component {
   }
 
   render() {
-    const { array, isDisabled } = this.state;
+    const { array } = this.state;
 
     return (
       <div className='sorting-visualiser'>
@@ -111,12 +110,10 @@ class SortingVisualiser extends React.Component {
             <h1 className='title'>SORTING ALGORITHM VISUALISER</h1>
           </div>
           <div className='button-container'>
-            <button className='button' disabled={isDisabled} onClick={() => this.resetArray()}>Generate New Array</button>
+            <button className='button' onClick={() => this.resetArray()}>Generate New Array</button>
             <button className='button' onClick={() => this.bubbleSort()}>Bubble Sort</button>
             <button className='button' onClick={() => this.selectionSort()}>Selection Sort</button>
             <button className='button' onClick={() => this.insertionSort()}>Insertion Sort</button>
-            <button className='button' onClick={() => console.log('MERGE SORT')}>Merge Sort</button>
-            <button className='button' onClick={() => console.log('QUICK SORT')}>Quick Sort</button>
           </div>
         </div>
         <div className='array-container'>
